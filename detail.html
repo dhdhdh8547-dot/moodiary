@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moodiary | 일기 상세</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body data-page="detail">
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Moodiary 홈으로 이동">
+      <span class="logo-icon">✦</span>
+      <span>Moodiary</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">일기 목록</a>
+      <a href="write.html">새 일기 쓰기</a>
+      <button class="theme-toggle" id="themeToggle" type="button">🌙</button>
+    </nav>
+  </header>
+
+  <main class="section-wrap detail-wrap">
+    <article class="detail-card" id="detailCard"></article>
+
+    <section class="empty-state hidden" id="notFoundState">
+      <div class="empty-icon">🔎</div>
+      <h1>일기를 찾을 수 없어요.</h1>
+      <p>삭제되었거나 잘못된 주소로 이동했을 수 있습니다.</p>
+      <a class="btn primary" href="index.html">목록으로 돌아가기</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>ⓒ 2026 Moodiary. HTML · CSS · JavaScript Web Project.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moodiary | 일기 작성</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body data-page="write">
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Moodiary 홈으로 이동">
+      <span class="logo-icon">✦</span>
+      <span>Moodiary</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">일기 목록</a>
+      <a href="write.html" class="active">새 일기 쓰기</a>
+      <button class="theme-toggle" id="themeToggle" type="button">🌙</button>
+    </nav>
+  </header>
+
+  <main class="section-wrap write-layout">
+    <section class="form-panel">
+      <p class="eyebrow">Write Diary</p>
+      <h1 id="writeTitle">오늘의 일기 쓰기</h1>
+      <p class="page-desc">오늘의 감정과 기억하고 싶은 장면을 적어보세요.</p>
+
+      <form id="diaryForm" novalidate>
+        <input type="hidden" id="entryId" />
+
+        <div class="form-row two-col">
+          <div class="field">
+            <label for="dateInput">날짜</label>
+            <input id="dateInput" type="date" required />
+          </div>
+          <div class="field">
+            <label for="weatherInput">날씨</label>
+            <select id="weatherInput">
+              <option value="sunny">☀️ 맑음</option>
+              <option value="cloudy">☁️ 흐림</option>
+              <option value="rainy">🌧️ 비</option>
+              <option value="snowy">❄️ 눈</option>
+              <option value="windy">🍃 바람</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="titleInput">제목</label>
+          <input id="titleInput" type="text" maxlength="35" placeholder="예: 생각보다 괜찮았던 하루" required />
+          <small id="titleHelp">제목은 35자 이내로 작성하세요.</small>
+        </div>
+
+        <fieldset class="mood-field">
+          <legend>오늘의 감정</legend>
+          <div class="mood-options">
+            <label><input type="radio" name="mood" value="happy" checked /> <span>😊 행복</span></label>
+            <label><input type="radio" name="mood" value="calm" /> <span>🌿 평온</span></label>
+            <label><input type="radio" name="mood" value="tired" /> <span>😴 피곤</span></label>
+            <label><input type="radio" name="mood" value="sad" /> <span>☁️ 우울</span></label>
+            <label><input type="radio" name="mood" value="angry" /> <span>🔥 화남</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="scoreInput">하루 점수</label>
+            <strong id="scoreValue">7점</strong>
+          </div>
+          <input id="scoreInput" type="range" min="1" max="10" value="7" />
+        </div>
+
+        <div class="field">
+          <label for="keywordInput">키워드</label>
+          <input id="keywordInput" type="text" placeholder="쉼, 친구, 공부처럼 쉼표로 구분" />
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="contentInput">일기 내용</label>
+            <small><span id="charCount">0</span>/500자</small>
+          </div>
+          <textarea id="contentInput" maxlength="500" rows="10" placeholder="오늘 있었던 일과 감정을 자유롭게 적어보세요." required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn primary" type="submit">저장하기</button>
+          <button class="btn ghost" id="resetBtn" type="button">초기화</button>
+          <a class="btn light" href="index.html">목록으로</a>
+        </div>
+      </form>
+    </section>
+
+    <aside class="preview-panel" aria-label="일기 미리보기">
+      <p class="eyebrow">Live Preview</p>
+      <h2>미리보기</h2>
+      <article class="diary-card preview-card mood-happy" id="previewCard">
+        <div class="card-top">
+          <span class="mood-badge" id="previewMood">😊 행복</span>
+          <span class="date-text" id="previewDate">-</span>
+        </div>
+        <h3 id="previewTitle">제목이 이곳에 표시됩니다</h3>
+        <p id="previewContent">일기 내용을 입력하면 실시간으로 미리보기가 바뀝니다.</p>
+        <div class="card-meta">
+          <span id="previewWeather">☀️ 맑음</span>
+          <span id="previewScore">7점</span>
+        </div>
+        <div class="tag-list" id="previewTags"></div>
+      </article>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>ⓒ 2026 Moodiary. HTML · CSS · JavaScript Web Project.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moodiary | 감정 기록 온라인 일기장</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Moodiary 홈으로 이동">
+      <span class="logo-icon">✦</span>
+      <span>Moodiary</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="active">일기 목록</a>
+      <a href="write.html">새 일기 쓰기</a>
+      <button class="theme-toggle" id="themeToggle" type="button">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Today Mood Diary</p>
+        <h1>오늘의 감정과 하루를<br />짧고 따뜻하게 기록해요.</h1>
+        <p class="hero-desc">
+          날짜, 감정, 날씨, 하루 점수, 키워드를 함께 저장하는 온라인 일기장입니다.
+          작성한 일기는 브라우저 저장소에 보관되어 다시 확인할 수 있습니다.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="write.html">오늘 일기 쓰기</a>
+          <button class="btn ghost" id="loadSampleBtn" type="button">샘플 일기 불러오기</button>
+        </div>
+      </div>
+      <aside class="today-card" aria-label="오늘 정보">
+        <span class="today-label">TODAY</span>
+        <strong id="todayDate">-</strong>
+        <p id="todayMessage">오늘도 기록할 준비가 되었어요.</p>
+      </aside>
+    </section>
+
+    <section class="stats-grid section-wrap" aria-label="일기 통계">
+      <article class="stat-card">
+        <span>총 일기</span>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>평균 하루 점수</span>
+        <strong id="avgScore">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>가장 많은 감정</span>
+        <strong id="topMood">-</strong>
+      </article>
+    </section>
+
+    <section class="toolbar section-wrap" aria-label="일기 검색 및 필터">
+      <div class="search-box">
+        <label for="searchInput">검색</label>
+        <input id="searchInput" type="search" placeholder="제목, 내용, 키워드 검색" />
+      </div>
+
+      <div class="filter-buttons" id="filterButtons" aria-label="감정 필터">
+        <button class="filter-btn active" data-filter="all" type="button">전체</button>
+        <button class="filter-btn" data-filter="happy" type="button">😊 행복</button>
+        <button class="filter-btn" data-filter="calm" type="button">🌿 평온</button>
+        <button class="filter-btn" data-filter="tired" type="button">😴 피곤</button>
+        <button class="filter-btn" data-filter="sad" type="button">☁️ 우울</button>
+        <button class="filter-btn" data-filter="angry" type="button">🔥 화남</button>
+      </div>
+    </section>
+
+    <section class="section-wrap">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow">Diary List</p>
+          <h2>나의 일기</h2>
+        </div>
+        <button class="text-button" id="clearAllBtn" type="button">전체 삭제</button>
+      </div>
+
+      <div class="diary-grid" id="diaryList" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">📝</div>
+        <h3>아직 저장된 일기가 없어요.</h3>
+        <p>첫 번째 일기를 작성하면 이곳에 카드로 표시됩니다.</p>
+        <a class="btn primary" href="write.html">일기 작성하기</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>ⓒ 2026 Moodiary. HTML · CSS · JavaScript Web Project.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
