@@ -1,10 +1,4 @@
-/* Moodiary JavaScript
-   - DOM 선택 및 조작
-   - 이벤트 처리
-   - localStorage 저장
-   - 동적 문서 객체 생성
-   - jQuery가 연결된 환경에서는 fadeIn 시각 효과 추가 적용
-*/
+
 
 const STORAGE_KEY = 'moodiary_entries_v1';
 const THEME_KEY = 'moodiary_theme_v1';
